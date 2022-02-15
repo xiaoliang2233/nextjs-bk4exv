@@ -29,6 +29,9 @@ export default {
     },
     {
       comp_ref: 'Footer',
+      config: {
+        text: 'powered by stackblitz',
+      },
     },
   ],
 };

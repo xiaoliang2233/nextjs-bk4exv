@@ -7,9 +7,8 @@ class Context {
     this.responsePayload = {};
     this.userData = {
       mobileNumber: '',
-      password: '',
+      name: '',
       email: '',
-      address: '',
     };
     this.error = null;
     this.flow = null;

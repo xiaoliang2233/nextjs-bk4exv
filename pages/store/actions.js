@@ -29,10 +29,13 @@ const appActions = {
     return function (dispatch, getState) {
       const {
         formData,
-        serverData: { inferenceResult },
+        // this token insecure, only for demo, use cookie with httpOnly instead.
+        // we use this is because cookie isn't work in Stackblitz
+        serverData: { inferenceResult, token },
       } = getState();
       const payload = {
         inferenceResult,
+        token,
         fields: {},
       };
       Object.keys(formData)

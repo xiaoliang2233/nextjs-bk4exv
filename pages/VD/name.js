@@ -13,24 +13,15 @@ export default {
         first: {
           comp_ref: 'Input',
           config: {
-            fieldId: 'email',
-            placeholderKey: 'email',
-            errorValidator: 'required',
-          },
-        },
-        second: {
-          comp_ref: 'Input',
-          config: {
-            fieldId: 'password',
-            placeholderKey: 'password',
-            type: 'password',
+            fieldId: 'name',
+            placeholderKey: 'ChineseName',
             errorValidator: 'required',
           },
         },
         last: {
           comp_ref: 'Button',
           config: {
-            placeholderKey: 'next',
+            placeholderKey: 'Next',
           },
         },
         layout: ['first', 'last'],

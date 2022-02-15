@@ -22,8 +22,10 @@ function Container({ layout, ...others }) {
   return <div class={`container`}>{comps}</div>;
 }
 
-function Footer() {
-  return <div class={`footer`}>This is Footer</div>;
+function Footer({ customCssClass, text }) {
+  return (
+    <div class={`${customCssClass} footer`}>{text || 'This is Footer'}</div>
+  );
 }
 
 function Review(state) {

@@ -34,4 +34,32 @@ rule 'move to name page' {
     });
   }
 }
+rule 'move to name page' {
+  when {
+      ctx: Context ctx.inferenceResult == null;
+      ctx: Context ctx.userData.mobileNumber != null;
+      ctx: Context ctx.userData.email != null;
+      ctx: Context ctx.userData.name !=null;
+      ctx: Context ctx.accountId !=null;
+  }
+  then {
+    modify(ctx, function(){
+      ctx.inferenceResult = 'welcome';
+    });
+  }
+}
+rule 'move to error page' {
+  when {
+      ctx: Context ctx.inferenceResult == null;
+      ctx: Context ctx.userData.mobileNumber != null;
+      ctx: Context ctx.userData.email != null;
+      ctx: Context ctx.userData.name !=null;
+      not(ctx: Context ctx.accountId);
+  }
+  then {
+    modify(ctx, function(){
+      ctx.inferenceResult = 'error';
+    });
+  }
+}
 `;

@@ -1,7 +1,7 @@
 import Q from 'q';
 import cookie from 'cookie';
 import VDs from '../VD';
-import { log, getSession } from './utils';
+import { log, getSession, setCache } from './utils';
 import content from './content';
 
 function postInference(context) {
@@ -15,7 +15,7 @@ function postInference(context) {
     updateSession,
     // http response.
     responseDataToClient,
-    // log('postInference end'),
+    log('postInference end'),
   ].reduce(Q.when, Q(context));
 }
 
@@ -36,15 +36,18 @@ function setContent(context) {
 }
 
 function updateSession(context) {
-  const { req, res, userData } = context;
+  const { userData, token, responsePayload } = context;
+  setCache(token, userData);
+  responsePayload.token = token;
   return context;
 }
 
 function responseDataToClient(context) {
   const { responsePayload, res } = context;
+  // I don't know why this don't work in stackblitz, only worked in local loptop.
   res.setHeader(
     'Set-Cookie',
-    cookie.serialize('token', Math.random(), {
+    cookie.serialize('token', Math.floor(Math.random() * 10000000), {
       httpOnly: true,
     })
   );
