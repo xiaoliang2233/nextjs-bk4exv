@@ -1,0 +1,43 @@
+h1,
+p {
+  font-family: Lato;
+}
+.app {
+  height: 100vh;
+}
+
+.header {
+  height: 10vh;
+  text-align: center;
+  font-size: 26px;
+  color: red;
+  border: 1px solid saddlebrown;
+}
+
+.container {
+  min-height: calc(100vh - 25vh);
+}
+
+.footer {
+  height: 10vh;
+  text-align: center;
+  font-size: 26px;
+  color: red;
+  border: 1px solid saddlebrown;
+}
+
+.error {
+  color: red;
+}
+
+.my-header {
+  color: rebeccapurple;
+}
+
+button {
+  margin-top: 30px;
+}
+
+.input-wrapper {
+  min-height: 60px;
+}
